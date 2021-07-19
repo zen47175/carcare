@@ -55,7 +55,7 @@ class Topic extends StatelessWidget {
             child: GridView.builder(
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
-              itemCount: 2,
+              itemCount: 10,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisSpacing: 20,
                   crossAxisCount: 2,
