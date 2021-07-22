@@ -74,58 +74,64 @@ class Topic extends StatelessWidget {
               ),
             ),
           ),
-          //product2 phoneset
-          Padding(
-            padding: const EdgeInsets.all(20),
-            child: GridView.builder(
-              shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
-              itemCount: 1,
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisSpacing: 20,
-                  crossAxisCount: 1,
-                  mainAxisSpacing: 20,
-                  childAspectRatio: 0.63),
-              itemBuilder: (context, index) => AllProduct2(
-                product: product,
-                press: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => DetailProduct2(product2: product),
-                    ),
-                  );
-                },
-              ),
-            ),
-          ),
-          // product3 car air purifier
-          Padding(
-            padding: const EdgeInsets.all(1),
-            child: GridView.builder(
-              shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
-              itemCount: 2,
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisSpacing: 20,
-                  crossAxisCount: 2,
-                  mainAxisSpacing: 20,
-                  childAspectRatio: 0.63),
-              itemBuilder: (context, index) => AllProduct3(
-                product: product,
-                press: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => DetailProduct3(product3: product),
-                    ),
-                  );
-                },
-              ),
-            ),
-          ),
         ],
       ),
     );
   }
 }
+        
+          //product2 phoneset
+//           Padding(
+//             padding: const EdgeInsets.all(20),
+//             child: GridView.builder(
+//               shrinkWrap: true,
+//               physics: NeverScrollableScrollPhysics(),
+//               itemCount: 1,
+//               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+//                   crossAxisSpacing: 20,
+//                   crossAxisCount: 1,
+//                   mainAxisSpacing: 20,
+//                   childAspectRatio: 0.63),
+//               itemBuilder: (context, index) => AllProduct2(
+//                 product: product,
+//                 press: () {
+//                   Navigator.push(
+//                     context,
+//                     MaterialPageRoute(
+//                       builder: (context) => DetailProduct2(product2: product),
+//                     ),
+//                   );
+//                 },
+//               ),
+//             ),
+//           ),
+//           // product3 car air purifier
+//           Padding(
+//             padding: const EdgeInsets.all(1),
+//             child: GridView.builder(
+//               shrinkWrap: true,
+//               physics: NeverScrollableScrollPhysics(),
+//               itemCount: 2,
+//               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+//                   crossAxisSpacing: 20,
+//                   crossAxisCount: 2,
+//                   mainAxisSpacing: 20,
+//                   childAspectRatio: 0.63),
+//               itemBuilder: (context, index) => AllProduct3(
+//                 product: product,
+//                 press: () {
+//                   Navigator.push(
+//                     context,
+//                     MaterialPageRoute(
+//                       builder: (context) => DetailProduct3(product3: product),
+//                     ),
+//                   );
+//                 },
+//               ),
+//             ),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }

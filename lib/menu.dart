@@ -2,26 +2,50 @@ import 'package:carcare/body.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 
-class Menu extends StatelessWidget {
+int _page = 0;
+GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
+
+class Menu extends StatefulWidget {
   const Menu({Key? key}) : super(key: key);
 
+  @override
+  _MenuState createState() => _MenuState();
+}
+
+class _MenuState extends State<Menu> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: CurvedNavigationBar(
-        backgroundColor: Colors.blueAccent,
+        key: _bottomNavigationKey,
+        backgroundColor: Colors.white,
         items: <Widget>[
           Icon(Icons.home, size: 30),
-          Icon(Icons.search, size: 30),
+          Icon(Icons.new_releases, size: 30),
           Icon(Icons.shopping_cart, size: 30),
           Icon(Icons.assignment_ind, size: 30),
           Icon(Icons.menu, size: 30),
         ],
         onTap: (index) {
-          //Handle button tap
+          setState(() {
+            _page = index;
+          });
         },
       ),
-      body: Topic(),
+      body: _page == 2
+          ? Topic()
+          : Row(
+              children: [
+                Expanded(
+                    child: Column(
+                  children: [
+                    Container(
+                      color: Colors.red,
+                    )
+                  ],
+                ))
+              ],
+            ),
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: Text('Mr.Car'),

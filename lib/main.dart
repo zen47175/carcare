@@ -1,4 +1,5 @@
 // ignore: unused_import
+import 'package:carcare/Homepage.dart';
 import 'package:carcare/menu.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
               elevation: 0,
               brightness: Brightness.light),
           primarySwatch: Colors.orange),
-      home: LoginPage(),
+      home: BottomNavBar(),
     );
   }
 }
@@ -97,7 +98,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
           Container(
-            height: double.infinity,
+            height: MediaQuery.of(context).size.height,
             child: SingleChildScrollView(
               physics: AlwaysScrollableScrollPhysics(),
               padding: EdgeInsets.symmetric(
