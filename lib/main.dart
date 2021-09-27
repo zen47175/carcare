@@ -210,3 +210,27 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 }
+
+
+// showLogInFail() {
+//     return showDialog(
+//         context: context,
+//         builder: (BuildContext context) {
+//           return AlertDialog(
+//             title: Text('Logout'),
+//             content: Text('Log in Fail \n please Try Again'),
+//             actions: <Widget>[
+//               ElevatedButton(
+//                 child: Text(
+//                   'Cancel',
+//                   style: TextStyle(color: Colors.white),
+//                 ),
+//                 onPressed: () {
+//                   Navigator.of(context).pop();
+//                 },
+//               ),
+              
+//             ],
+//           );
+//         });
+//   }
