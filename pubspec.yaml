@@ -3,7 +3,7 @@ description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -21,28 +21,67 @@ environment:
   sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
-  flutter:
-    sdk: flutter
+  
+  carousel_slider: ^4.0.0
+  # cloud_firestore: ^2.5.3
   cupertino_icons: ^1.0.2
   curved_navigation_bar: ^1.0.1
+  # firebase_core: ^1.6.0
+  google_fonts: ^2.1.0
+  introduction_screen: ^2.1.0
+  # firebase_storage: ^10.0.3
+  # firebase_database: ^8.0.0
+  simple_animations: ^3.0.0
+  drawing_animation: ^0.1.5
+  animated_text_kit: ^4.2.1
+  http: ^0.13.3
+  provider: ^6.0.1
+  
+  
 
 dev_dependencies:
+  flutter_native_splash: ^1.2.0
   flutter_test:
     sdk: flutter
+
+flutter_native_splash:
+  color: "#42f5e3"
+  image: assets/car splash.png
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 # The following section is specific to Flutter.
 flutter:
-
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
   # To add assets to your application, add an assets section, like this:
-assets: – assets/accessories1.jpg – assets/accessories2.jpg –
-  assets/accessories3.jpeg – assets/accessories4.jpg – assets/accessories5.jpg –
-  assets/tenor.gif
+  assets:
+    - assets/car splash.png
+    - assets/accessories1.jpg
+    - assets/accessories2.jpg
+    - assets/accessories3.jpeg
+    - assets/accessories4.jpg
+    - assets/tenor.gif
+    - assets/Toyota_car1.jpeg
+    - assets/Pidgeons.gif
+    - assets/arrowbutt.png
+    - assets/hondacivic2019.jpg
+    - assets/NewPicHomePage/new1.jpg
+    - assets/NewPicHomePage/new2.png
+    - assets/NewPicHomePage/new3.jpg
+    - assets/carLOGO/2560px-Honda.png
+    - assets/carLOGO/hondaLogo.png
+    
+    - assets/carLOGO/550px-Honda.png
+    - assets/carLOGO/bmwLogo.png
+    - assets/carLOGO/BenzLogo.png
+    - assets/carLOGO/toyotacarLogo.png
+    - assets/toyotalogo.png
+    - assets/nissanLogo.png
+    - assets/carLOGO/mercedes-benz-logo.jpg
+    - assets/Zen.jpg
 
 # An image asset can refer to one or more resolution-specific "variants", see
 # https://flutter.dev/assets-and-images/#resolution-aware.
@@ -53,17 +92,18 @@ assets: – assets/accessories1.jpg – assets/accessories2.jpg –
 # "family" key with the font family name, and a "fonts" key with a
 # list giving the asset and other descriptors for the font. For
 # example:
-# fonts:
-#   - family: Schyler
-#     fonts:
-#       - asset: fonts/Schyler-Regular.ttf
-#       - asset: fonts/Schyler-Italic.ttf
-#         style: italic
-#   - family: Trajan Pro
-#     fonts:
-#       - asset: fonts/TrajanPro.ttf
-#       - asset: fonts/TrajanPro_Bold.ttf
-#         weight: 700
+fonts:
+  - family: Schyler
+    fonts:
+      - asset: fonts/Schyler-Regular.ttf
+      - asset: fonts/Schyler-Italic.ttf
+        style: italic
+  - family: Trajan Pro
+    fonts:
+      - asset: fonts/TrajanPro.ttf
+      - asset: fonts/TrajanPro_Bold.ttf
+        weight: 700
+
 #
 # For details regarding fonts from package dependencies,
 # see https://flutter.dev/custom-fonts/#from-packages

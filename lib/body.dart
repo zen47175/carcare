@@ -1,15 +1,18 @@
-// ignore: unused_import
 import 'package:carcare/detail/detailproduct.dart';
 import 'package:carcare/models/categories.dart';
 import 'package:carcare/product_card.dart';
+import 'package:carcare/servive/Acessories_class.dart';
+
 import 'package:flutter/material.dart';
 
 import 'categoryType.dart';
-import 'models/Products.dart';
 
-class Topic extends StatelessWidget {
-  const Topic({Key? key}) : super(key: key);
+class Topic extends StatefulWidget {
+  @override
+  _TopicState createState() => _TopicState();
+}
 
+class _TopicState extends State<Topic> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -43,95 +46,46 @@ class Topic extends StatelessWidget {
             ),
           ),
           Divider(height: 5),
-          //product1
+          //product
           Padding(
             padding: const EdgeInsets.all(20),
             child: Text(
               'All product',
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(20),
-            child: GridView.builder(
-              shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
-              itemCount: 10,
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisSpacing: 20,
-                  crossAxisCount: 2,
-                  mainAxisSpacing: 20,
-                  childAspectRatio: 0.63),
-              itemBuilder: (context, index) => AllProduct(
-                product: product,
-                press: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => DetailProduct(product: product),
-                    ),
-                  );
-                },
-              ),
-            ),
+          FutureBuilder(
+            future: getAll(),
+            builder: (BuildContext context, AsyncSnapshot snapshot) {
+              if (snapshot.hasData) {
+                print(snapshot.data);
+                return Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: GridView.builder(
+                      shrinkWrap: true,
+                      physics: NeverScrollableScrollPhysics(),
+                      itemCount: 6,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisSpacing: 20,
+                          crossAxisCount: 2,
+                          mainAxisSpacing: 20,
+                          childAspectRatio: 0.63),
+                      itemBuilder: (context, index) {
+                        return AllProduct(
+                          product: snapshot.data[index],
+                          press: () {
+                            goTo(context,
+                                DetailProduct(product: snapshot.data[index]));
+                          },
+                        );
+                      }),
+                );
+              } else {
+                return Center(child: Image.asset('assets/tenor.gif'));
+              }
+            },
           ),
         ],
       ),
     );
   }
 }
-        
-          //product2 phoneset
-//           Padding(
-//             padding: const EdgeInsets.all(20),
-//             child: GridView.builder(
-//               shrinkWrap: true,
-//               physics: NeverScrollableScrollPhysics(),
-//               itemCount: 1,
-//               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-//                   crossAxisSpacing: 20,
-//                   crossAxisCount: 1,
-//                   mainAxisSpacing: 20,
-//                   childAspectRatio: 0.63),
-//               itemBuilder: (context, index) => AllProduct2(
-//                 product: product,
-//                 press: () {
-//                   Navigator.push(
-//                     context,
-//                     MaterialPageRoute(
-//                       builder: (context) => DetailProduct2(product2: product),
-//                     ),
-//                   );
-//                 },
-//               ),
-//             ),
-//           ),
-//           // product3 car air purifier
-//           Padding(
-//             padding: const EdgeInsets.all(1),
-//             child: GridView.builder(
-//               shrinkWrap: true,
-//               physics: NeverScrollableScrollPhysics(),
-//               itemCount: 2,
-//               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-//                   crossAxisSpacing: 20,
-//                   crossAxisCount: 2,
-//                   mainAxisSpacing: 20,
-//                   childAspectRatio: 0.63),
-//               itemBuilder: (context, index) => AllProduct3(
-//                 product: product,
-//                 press: () {
-//                   Navigator.push(
-//                     context,
-//                     MaterialPageRoute(
-//                       builder: (context) => DetailProduct3(product3: product),
-//                     ),
-//                   );
-//                 },
-//               ),
-//             ),
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-// }

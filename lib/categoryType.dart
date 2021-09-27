@@ -52,8 +52,9 @@ class CategoryType extends StatelessWidget {
                 child: AspectRatio(
                   aspectRatio: 1.15,
                   child: FadeInImage.assetNetwork(
-                    placeholder: 'https://d.lnwfile.com/zw6og2.jpg',
-                    image: 'https://d.lnwfile.com/zw6og2.jpg',
+                    placeholder: 'assets/tenor.gif',
+                    image:
+                        'https://cdn.istudio.store/media/catalog/product/cache/image/700x560/e9c3970ab036de70892d86c6d221abfe/m/i/mi_car_air_2.jpg',
                   ),
                 ),
               )
@@ -141,7 +142,7 @@ class CategoryType2 extends StatelessWidget {
                 child: AspectRatio(
                   aspectRatio: 1.15,
                   child: FadeInImage.assetNetwork(
-                    placeholder: 'https://d.lnwfile.com/zw6og2.jpg',
+                    placeholder: 'assets/tenor.gif',
                     image:
                         'https://cdn.istudio.store/media/catalog/product/cache/image/700x560/e9c3970ab036de70892d86c6d221abfe/m/i/mi_car_air_2.jpg',
                   ),
