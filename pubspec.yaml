@@ -21,32 +21,38 @@ environment:
   sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
-  
+  animated_text_kit: ^4.2.1
   carousel_slider: ^4.0.0
-  # cloud_firestore: ^2.5.3
   cupertino_icons: ^1.0.2
   curved_navigation_bar: ^1.0.1
-  # firebase_core: ^1.6.0
-  google_fonts: ^2.1.0
-  introduction_screen: ^2.1.0
-  # firebase_storage: ^10.0.3
-  # firebase_database: ^8.0.0
-  simple_animations: ^3.0.0
   drawing_animation: ^0.1.5
-  animated_text_kit: ^4.2.1
+
+  google_fonts: ^2.1.0
   http: ^0.13.3
+  introduction_screen: ^2.1.0
   provider: ^6.0.1
-  
-  
+  simple_animations: ^3.0.0
 
 dev_dependencies:
   flutter_native_splash: ^1.2.0
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: "^0.9.2"
 
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/carIcon.png"
+  
 flutter_native_splash:
-  color: "#42f5e3"
-  image: assets/car splash.png
+  color: "#0c8299"
+  image: assets/car splash.png 
+  ios: true
+  android: true
+ 
+    
+  
+    
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -73,7 +79,7 @@ flutter:
     - assets/NewPicHomePage/new3.jpg
     - assets/carLOGO/2560px-Honda.png
     - assets/carLOGO/hondaLogo.png
-    
+
     - assets/carLOGO/550px-Honda.png
     - assets/carLOGO/bmwLogo.png
     - assets/carLOGO/BenzLogo.png
@@ -82,6 +88,7 @@ flutter:
     - assets/nissanLogo.png
     - assets/carLOGO/mercedes-benz-logo.jpg
     - assets/Zen.jpg
+    - assets/newsplash.png
 
 # An image asset can refer to one or more resolution-specific "variants", see
 # https://flutter.dev/assets-and-images/#resolution-aware.
