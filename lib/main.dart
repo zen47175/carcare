@@ -1,33 +1,50 @@
 import 'dart:convert';
-import 'dart:ui';
+import 'package:carcare/signinGoogle/Authentication.dart';
+import 'package:carcare/signinGoogle/User_T.dart';
+
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:http/http.dart' as http;
 import 'package:carcare/introscreen.dart';
 import 'package:carcare/style.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 
-void main() async {
-  // WidgetsFlutterBinding.ensureInitialized();
-  // await Firebase.initializeApp();
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  Future<void> signInWithGoogle() async {
+    await Authentification().signInWithGoogle();
+  }
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Mr.Car',
-      theme: ThemeData(
-          scaffoldBackgroundColor: Colors.white,
-          appBarTheme: AppBarTheme(
-              color: Colors.transparent,
-              elevation: 0,
-              brightness: Brightness.light),
-          primaryColor: Colors.orange),
-      home: LoginPage(),
+    return MultiProvider(
+      providers: [
+        StreamProvider.value(
+          value: FirebaseAuth.instance.authStateChanges(),
+          initialData: null,
+        ),
+      ],
+      child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Mr.Car',
+          theme: ThemeData(
+              scaffoldBackgroundColor: Colors.white,
+              appBarTheme: AppBarTheme(
+                  color: Colors.transparent,
+                  elevation: 0,
+                  brightness: Brightness.light),
+              primaryColor: Colors.orange),
+          home: UserTest()),
     );
   }
 }
@@ -40,6 +57,10 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  Future<void> signInWithGoogle() async {
+    await Authentification().signInWithGoogle();
+  }
+
   Widget buildPassword() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -86,7 +107,7 @@ class _LoginPageState extends State<LoginPage> {
     String txtpassword = txt2.text;
     //get json text
     // ignore: non_constant_identifier_names
-    String login_url = "http://172.20.10.10:1880/login";
+    String login_url = "http://192.168.1.107:1880/login";
     var parameter = {"username": txtusername, "password": txtpassword};
     var jsonText = json.encode(parameter);
     var result = await http.post(Uri.parse(login_url),
@@ -200,6 +221,11 @@ class _LoginPageState extends State<LoginPage> {
                         doLogin(context);
                       },
                     ),
+                  ),
+                  SignInButton(
+                    Buttons.GoogleDark,
+                    text: "Sign up with Google",
+                    onPressed: signInWithGoogle,
                   )
                 ],
               ),

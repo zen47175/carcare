@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
 class HondaLogo extends StatelessWidget {
-  const HondaLogo({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -25,8 +23,6 @@ class HondaLogo extends StatelessWidget {
 }
 
 class ToyotaLogo extends StatelessWidget {
-  const ToyotaLogo({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -49,8 +45,6 @@ class ToyotaLogo extends StatelessWidget {
 }
 
 class BmLogo extends StatelessWidget {
-  const BmLogo({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Padding(

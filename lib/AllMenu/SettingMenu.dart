@@ -1,3 +1,4 @@
+import 'package:carcare/signinGoogle/Authentication.dart';
 import 'package:flutter/material.dart';
 
 class Setting extends StatefulWidget {
@@ -6,6 +7,12 @@ class Setting extends StatefulWidget {
 }
 
 class _SettingState extends State<Setting> {
+  // Future<void> signOut() async {
+  //   await Authentification().signOut();
+  // }
+
+  final ValueNotifier<ThemeMode> _notifier = ValueNotifier(ThemeMode.light);
+
   List<List> _settings = [
     [
       'Notifications',
@@ -13,7 +20,7 @@ class _SettingState extends State<Setting> {
       Icons.notifications_rounded,
       Colors.red[400]
     ],
-    ['Dark Mode', ' settings', Icons.dark_mode, Colors.green[400]],
+    ['Dark Theme', ' settings', Icons.dark_mode, Colors.green[400]],
     ['Order', 'Order history', Icons.shopping_bag, Colors.orange[400]],
     ['Help', 'Help and feedback', Icons.help_outline, Colors.blue[400]],
     ['Logout', 'Logout', Icons.exit_to_app, Colors.deepOrange],
@@ -41,11 +48,16 @@ class _SettingState extends State<Setting> {
                 onPressed: () {
                   Navigator.of(context).pop();
                   Navigator.of(context).pushReplacementNamed('/');
+                  //signOut();
                 },
               ),
             ],
           );
         });
+  }
+
+  changeDarkTheme() {
+    return;
   }
 
   @override
@@ -65,7 +77,7 @@ class _SettingState extends State<Setting> {
                     radius: 50,
                     backgroundColor: Colors.grey[200],
                     backgroundImage: NetworkImage(
-                        'https://instagram.fbkk22-4.fna.fbcdn.net/v/t51.2885-19/s320x320/177614284_1353792738349148_3411146567709947395_n.jpg?_nc_ht=instagram.fbkk22-4.fna.fbcdn.net&_nc_ohc=xHvoXxnEHUYAX8ZA74T&edm=ABfd0MgBAAAA&ccb=7-4&oh=ff7985b066160e59b7325546a2d691c0&oe=61521931&_nc_sid=7bff83'),
+                        'https://instagram.fbkk22-2.fna.fbcdn.net/v/t51.2885-19/s320x320/177614284_1353792738349148_3411146567709947395_n.jpg?_nc_ht=instagram.fbkk22-2.fna.fbcdn.net&_nc_ohc=KEoqIXjE3yMAX-euBYq&edm=ABfd0MgBAAAA&ccb=7-4&oh=00d5be70031d59d4c2a0592d250c31c8&oe=615BFC71&_nc_sid=7bff83'),
                   )),
                   SizedBox(
                     width: 20,
@@ -122,16 +134,18 @@ class _SettingState extends State<Setting> {
             Container(
               height: 500,
               child: ListView.builder(
-                  physics: NeverScrollableScrollPhysics(),
-                  itemCount: _settings.length,
-                  itemBuilder: (context, index) {
-                    return Container(
-                        child: settingsOption(
-                            _settings[index][0],
-                            _settings[index][1],
-                            _settings[index][2],
-                            _settings[index][3]));
-                  }),
+                physics: NeverScrollableScrollPhysics(),
+                itemCount: _settings.length,
+                itemBuilder: (context, index) {
+                  return Container(
+                    child: settingsOption(
+                        _settings[index][0],
+                        _settings[index][1],
+                        _settings[index][2],
+                        _settings[index][3]),
+                  );
+                },
+              ),
             ),
           ],
         ),
@@ -144,6 +158,9 @@ class _SettingState extends State<Setting> {
       onTap: () {
         if (title == 'Logout') {
           showLogoutDealog();
+        }
+        if (title == 'Dark Theme') {
+          changeDarkTheme();
         }
       },
       subtitle: Text(subtitle),

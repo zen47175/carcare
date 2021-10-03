@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:carcare/detail/detailproduct.dart';
 import 'package:carcare/models/categories.dart';
 import 'package:carcare/product_card.dart';
@@ -51,6 +53,7 @@ class _TopicState extends State<Topic> {
             padding: const EdgeInsets.all(20),
             child: Text(
               'All product',
+              style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
             ),
           ),
           FutureBuilder(

@@ -1,32 +1,62 @@
 import 'package:carcare/menu.dart';
 // ignore: unused_import
 import 'package:carcare/servive/Acessories_class.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+import 'package:provider/provider.dart';
 
-class App extends StatelessWidget {
+class App extends StatefulWidget {
+  @override
+  _AppState createState() => _AppState();
+  static _AppState? of(BuildContext context) =>
+      context.findAncestorStateOfType<_AppState>();
+}
+
+class _AppState extends State<App> {
+  final ValueNotifier<ThemeMode> _notifier = ValueNotifier(ThemeMode.light);
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle.dark.copyWith(statusBarColor: Colors.transparent),
     );
-
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Mr.Car',
-      theme: ThemeData(
-          scaffoldBackgroundColor: Colors.grey[50],
-          appBarTheme: AppBarTheme(
-              elevation: 0,
-              color: Colors.transparent,
-              brightness: Brightness.light),
-          primaryColor: Colors.orange),
-      home: OnBoardingPage(),
-    );
+    return ValueListenableBuilder<ThemeMode>(
+        valueListenable: _notifier,
+        builder: (_, mode, __) {
+          return MultiProvider(
+            providers: [
+              StreamProvider.value(
+                value: FirebaseAuth.instance.authStateChanges(),
+                initialData: null,
+              ),
+            ],
+            child: MaterialApp(
+              debugShowCheckedModeBanner: false,
+              title: 'Mr.Car',
+              theme: ThemeData(
+                  scaffoldBackgroundColor: Colors.grey[50],
+                  appBarTheme: AppBarTheme(
+                      elevation: 0,
+                      color: Colors.transparent,
+                      brightness: Brightness.light),
+                  primaryColor: Colors.orange),
+              darkTheme: ThemeData.dark(),
+              themeMode: mode,
+              home: OnBoardingPage(),
+            ),
+          );
+        });
   }
 }
+
+// void changeTheme(ThemeMode themeMode) {
+//     setState(() {
+//       _themeMode = themeMode;
+//     });
+//   }
 
 class OnBoardingPage extends StatefulWidget {
   @override

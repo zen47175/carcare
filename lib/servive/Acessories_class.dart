@@ -167,7 +167,7 @@ class Group {
   int get hashCode => groupId.hashCode ^ groupName.hashCode;
 }
 
-const products_url = "http://172.20.10.10:1880/products";
+const products_url = "http://192.168.1.107:1880/products";
 
 // Future<List<Product>> getGroup1() async {
 //   var result = await http.get(Uri.parse(products_url));
