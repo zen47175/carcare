@@ -77,7 +77,7 @@ class _SettingState extends State<Setting> {
                     radius: 50,
                     backgroundColor: Colors.grey[200],
                     backgroundImage: NetworkImage(
-                        'https://instagram.fbkk22-2.fna.fbcdn.net/v/t51.2885-19/s320x320/177614284_1353792738349148_3411146567709947395_n.jpg?_nc_ht=instagram.fbkk22-2.fna.fbcdn.net&_nc_ohc=KEoqIXjE3yMAX-euBYq&edm=ABfd0MgBAAAA&ccb=7-4&oh=00d5be70031d59d4c2a0592d250c31c8&oe=615BFC71&_nc_sid=7bff83'),
+                        'https://6.viki.io/image/3f4a120f384e4f208cbc39ba7d752083.jpeg?s=900x600&e=t'),
                   )),
                   SizedBox(
                     width: 20,
@@ -87,7 +87,7 @@ class _SettingState extends State<Setting> {
                     children: [
                       Container(
                           child: Text(
-                        'Nattapat A',
+                        'Ma LoveLy IU',
                         style: TextStyle(
                             fontSize: 20, fontWeight: FontWeight.bold),
                       )),

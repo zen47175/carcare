@@ -9,12 +9,12 @@ import 'package:provider/provider.dart';
 class UserTest extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    User user = Provider.of<User>(context);
-    print(user.displayName);
-    if (user.email != "") {
-      return OnBoardingPage();
-    } else {
+    User? user = Provider.of<User?>(context);
+    print(user?.displayName);
+    if (user?.uid == "") {
       return LoginPage();
+    } else {
+      return OnBoardingPage();
     }
   }
 }

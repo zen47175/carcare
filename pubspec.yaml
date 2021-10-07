@@ -89,6 +89,7 @@ flutter:
     - assets/carLOGO/mercedes-benz-logo.jpg
     - assets/Zen.jpg
     - assets/newsplash.png
+    - assets/waiting.png
 
 # An image asset can refer to one or more resolution-specific "variants", see
 # https://flutter.dev/assets-and-images/#resolution-aware.

@@ -1,61 +1,62 @@
-// // ignore: unused_import
-// import 'package:carcare/style.dart';
-// import 'package:cloud_firestore/cloud_firestore.dart';
-// import 'package:flutter/material.dart';
-// // ignore: unused_import
-// import 'package:firebase_database/firebase_database.dart';
+import 'package:flutter/material.dart';
 
-// // class CustomerBody extends StatefulWidget {
-// //   const CustomerBody({Key? key}) : super(key: key);
+class CustomerBody extends StatelessWidget {
+  const CustomerBody({
+    Key? key,
+  }) : super(key: key);
 
-// //   @override
-// //   _CustomerBodyState createState() => _CustomerBodyState();
-// // }
-
-// // class _CustomerBodyState extends State<CustomerBody> {
-// //   @override
-// //   Widget build(BuildContext context) {
-// //     return PopularCar()
-// //   }
-// // }
-
-// class CustomerBody extends StatelessWidget {
-//   final CollectionReference carConnect =
-//       FirebaseFirestore.instance.collection('Car');
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: StreamBuilder(
-//         stream: FirebaseFirestore.instance.collection("Car").snapshots(),
-//         builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
-//           if (!snapshot.hasData) {
-//             return Center(
-//               child: Text(
-//                 'test12',
-//                 style: TextStyle(fontSize: 60),
-//               ),
-//             );
-//           } else {
-//             return ListView(
-//               children: snapshot.data!.docs.map((document) {
-//                 return Container(
-//                   child: ListTile(
-//                     leading: CircleAvatar(
-//                       radius: 30,
-//                       child: FittedBox(
-//                         child: Text(document['Infor']),
-//                       ),
-//                     ),
-//                     title: Text(document['Infor'] + document['Infor']),
-//                     subtitle: Text(document['title']),
-//                   ),
-//                 );
-//               }).toList(),
-//             );
-//           }
-//         },
-//       ),
-//     );
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('title')),
+      body: const Center(
+        child: Text('My Page!'),
+      ),
+      drawer: Drawer(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.max,
+          children: <Widget>[
+            UserAccountsDrawerHeader(
+              accountName: Text('zen'),
+              accountEmail: Text('Mr.Zen'),
+              currentAccountPicture: CircleAvatar(
+                child: FlutterLogo(
+                  size: 42.0,
+                ),
+                backgroundColor: Colors.white,
+              ),
+              otherAccountsPictures: <Widget>[
+                CircleAvatar(
+                  child: Text("Mr.Zen all the way"),
+                  foregroundColor: Colors.white,
+                  backgroundColor: Colors.orange,
+                ),
+                CircleAvatar(
+                  child: Icon(Icons.add),
+                  foregroundColor: Colors.white,
+                  backgroundColor: Colors.grey,
+                )
+              ],
+            ),
+            ListTile(title: Text('Item 1'), onTap: () {}),
+            ListTile(
+              title: Text('Item 2'),
+              onTap: () {},
+            ),
+            Divider(),
+            Expanded(
+              child: Align(
+                alignment: Alignment.bottomLeft,
+                child: ListTile(
+                  title: Text('Item 3'),
+                  onTap: () {},
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

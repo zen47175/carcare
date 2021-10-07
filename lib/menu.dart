@@ -1,8 +1,11 @@
 // ignore: unused_import
+import 'package:carcare/AllCustomerdetail/Customerdetail.dart';
 import 'package:carcare/AllHomePage/Homepagelist.dart';
 import 'package:carcare/AllMenu/SettingMenu.dart';
 import 'package:carcare/Allnew/newbody.dart';
+import 'package:carcare/Favourite%20product/favouritePage.dart';
 import 'package:carcare/body.dart';
+import 'package:carcare/servive/Acessories_class.dart';
 
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +23,7 @@ class _MenuState extends State<Menu> {
     Homepage(),
     Newbody(),
     Topic(),
-    //CustomerBody(),
+    CustomerBody(),
     Setting(),
   ];
 
@@ -58,12 +61,22 @@ class _MenuState extends State<Menu> {
         title: Text('Mr.Car'),
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.favorite_border_rounded),
-            onPressed: () {},
+            icon: Icon(
+              Icons.favorite_border_rounded,
+              size: 28,
+              color: Colors.black,
+            ),
+            onPressed: () {
+              goTo(context, Favourite());
+            },
           ),
           IconButton(
-            onPressed: null,
-            icon: Icon(Icons.search_outlined),
+            onPressed: () {},
+            icon: Icon(
+              Icons.search_outlined,
+              size: 28,
+              color: Colors.black,
+            ),
           )
         ],
       ),
