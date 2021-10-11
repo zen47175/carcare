@@ -1,5 +1,10 @@
+import 'package:carcare/AllMenu/languagePage.dart';
+import 'package:carcare/servive/Acessories_class.dart';
+import 'package:carcare/servive/real%20local%20store.dart';
 import 'package:carcare/signinGoogle/Authentication.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class Setting extends StatefulWidget {
   @override
@@ -7,17 +12,17 @@ class Setting extends StatefulWidget {
 }
 
 class _SettingState extends State<Setting> {
-  // Future<void> signOut() async {
-  //   await Authentification().signOut();
-  // }
+  Future<void> signOut() async {
+    await Authentification().signOut();
+  }
 
   final ValueNotifier<ThemeMode> _notifier = ValueNotifier(ThemeMode.light);
 
   List<List> _settings = [
     [
-      'Notifications',
-      'Turn on/off notifications',
-      Icons.notifications_rounded,
+      'Change Language',
+      'Turn on/off  language',
+      Icons.language_outlined,
       Colors.red[400]
     ],
     ['Dark Theme', ' settings', Icons.dark_mode, Colors.green[400]],
@@ -48,12 +53,16 @@ class _SettingState extends State<Setting> {
                 onPressed: () {
                   Navigator.of(context).pop();
                   Navigator.of(context).pushReplacementNamed('/');
-                  //signOut();
+                  signOut();
                 },
               ),
             ],
           );
         });
+  }
+
+  showLuanguage() {
+    return goTo(context, LanguageSetupPage());
   }
 
   changeDarkTheme() {
@@ -62,6 +71,7 @@ class _SettingState extends State<Setting> {
 
   @override
   Widget build(BuildContext context) {
+    var store1 = Provider.of<StoreLanguage>(context);
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -87,7 +97,7 @@ class _SettingState extends State<Setting> {
                     children: [
                       Container(
                           child: Text(
-                        'Ma LoveLy IU',
+                        store1.h6.tr(),
                         style: TextStyle(
                             fontSize: 20, fontWeight: FontWeight.bold),
                       )),
@@ -154,13 +164,18 @@ class _SettingState extends State<Setting> {
   }
 
   settingsOption(String title, String subtitle, IconData icon, Color color) {
+    var store1 = Provider.of<StoreLanguage>(context);
     return ListTile(
       onTap: () {
         if (title == 'Logout') {
+          signOut();
           showLogoutDealog();
         }
         if (title == 'Dark Theme') {
           changeDarkTheme();
+        }
+        if (title == store1.h5.tr()) {
+          showLuanguage();
         }
       },
       subtitle: Text(subtitle),

@@ -11,7 +11,7 @@ class UserTest extends StatelessWidget {
   Widget build(BuildContext context) {
     User? user = Provider.of<User?>(context);
     print(user?.displayName);
-    if (user?.uid == "") {
+    if (user?.uid == null) {
       return LoginPage();
     } else {
       return OnBoardingPage();

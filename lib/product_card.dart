@@ -23,10 +23,14 @@ class AllProduct extends StatelessWidget {
             children: <Widget>[
               AspectRatio(
                 aspectRatio: 1,
-                child: FadeInImage.assetNetwork(
-                  placeholder: "assets/tenor.gif",
-                  image: product.url,
-                  fit: BoxFit.cover,
+                child: Hero(
+                  //ไม่เด้ง
+                  tag: product.id,
+                  child: FadeInImage.assetNetwork(
+                    placeholder: "assets/tenor.gif",
+                    image: product.url,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
               Padding(
@@ -34,7 +38,7 @@ class AllProduct extends StatelessWidget {
                 child: Text(product.name),
               ),
               SizedBox(
-                height: 10 / 2,
+                height: 5,
               ),
               Text("${product.price} ฿ "),
               Spacer()

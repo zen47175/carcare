@@ -113,6 +113,8 @@ class Product {
         url.hashCode ^
         group.hashCode;
   }
+
+  static void add(Product product) {}
 }
 
 class Group {
@@ -167,29 +169,7 @@ class Group {
   int get hashCode => groupId.hashCode ^ groupName.hashCode;
 }
 
-const products_url = "http://192.168.1.107:1880/products";
-
-Future<List<Product>> getGroup1() async {
-  var result = await http.get(Uri.parse(products_url));
-  if (result.statusCode != 200) {
-    return [];
-  } else {
-    var map1 = json.decode(result.body) as List;
-    List<Product> list1 = map1.map((x) => Product.fromMap(x)).toList();
-    return list1.where((element) => element.group.groupId == 1).toList();
-  }
-}
-
-Future<List<Product>> getGroup2() async {
-  var result = await http.get(Uri.parse(products_url));
-  if (result.statusCode != 200) {
-    return [];
-  } else {
-    var map1 = json.decode(result.body) as List;
-    List<Product> list1 = map1.map((x) => Product.fromMap(x)).toList();
-    return list1.where((element) => element.group.groupId == 2).toList();
-  }
-}
+const products_url = "http://192.168.1.4:1880/products";
 
 Future<List<Product>> getAll() async {
   var result = await http.get(Uri.parse(products_url));

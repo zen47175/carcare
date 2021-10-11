@@ -5,8 +5,10 @@ import 'package:carcare/detail/detailproduct.dart';
 import 'package:carcare/models/categories.dart';
 import 'package:carcare/product_card.dart';
 import 'package:carcare/servive/Acessories_class.dart';
-
+import 'package:carcare/servive/real%20local%20store.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class Topic extends StatefulWidget {
   @override
@@ -17,6 +19,7 @@ class _TopicState extends State<Topic> {
   int groupId = 0;
   @override
   Widget build(BuildContext context) {
+    var store1 = Provider.of<StoreLanguage>(context);
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -24,7 +27,7 @@ class _TopicState extends State<Topic> {
           Padding(
             padding: const EdgeInsets.all(25.0),
             child: Text(
-              'Categories',
+              store1.h8.tr(),
               style: TextStyle(
                 fontSize: 19,
                 fontWeight: FontWeight.bold,
@@ -67,10 +70,10 @@ class _TopicState extends State<Topic> {
             padding: const EdgeInsets.all(20),
             child: Text(
               groupId == 0
-                  ? "All Accessory"
+                  ? store1.h7.tr()
                   : groupId == 1
-                      ? "Charger"
-                      : "Camera",
+                      ? store1.h8.tr()
+                      : store1.h9.tr(),
               style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
             ),
           ),

@@ -1,6 +1,8 @@
 import 'dart:convert';
+import 'package:carcare/servive/real%20local%20store.dart';
 import 'package:carcare/signinGoogle/Authentication.dart';
 import 'package:carcare/signinGoogle/User_T.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -16,7 +18,22 @@ import 'package:provider/provider.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
+  runApp(
+    EasyLocalization(
+      path: 'assets',
+      fallbackLocale: Locale('en', 'US'),
+      supportedLocales: [
+        Locale('en', 'US'),
+        Locale('th', 'TH'),
+      ],
+      child: ChangeNotifierProvider(
+        create: (context) => StoreLanguage(),
+        child: MyApp(),
+      ),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -35,6 +52,9 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
+          localizationsDelegates: context.localizationDelegates,
+          supportedLocales: context.supportedLocales,
+          locale: context.locale,
           debugShowCheckedModeBanner: false,
           title: 'Mr.Car',
           theme: ThemeData(
@@ -107,7 +127,7 @@ class _LoginPageState extends State<LoginPage> {
     String txtpassword = txt2.text;
     //get json text
     // ignore: non_constant_identifier_names
-    String login_url = "http://192.168.1.107:1880/login";
+    String login_url = "http://192.168.1.4.:1880/login";
     var parameter = {"username": txtusername, "password": txtpassword};
     var jsonText = json.encode(parameter);
     var result = await http.post(Uri.parse(login_url),

@@ -4,6 +4,7 @@ import 'package:carcare/AllHomePage/Homepagelist.dart';
 import 'package:carcare/AllMenu/SettingMenu.dart';
 import 'package:carcare/Allnew/newbody.dart';
 import 'package:carcare/Favourite%20product/favouritePage.dart';
+import 'package:carcare/Favourite%20product/seachfilter.dart';
 import 'package:carcare/body.dart';
 import 'package:carcare/servive/Acessories_class.dart';
 
@@ -71,7 +72,9 @@ class _MenuState extends State<Menu> {
             },
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              goTo(context, Searchfilter());
+            },
             icon: Icon(
               Icons.search_outlined,
               size: 28,

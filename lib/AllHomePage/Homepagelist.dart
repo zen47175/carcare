@@ -2,9 +2,11 @@ import 'dart:ui';
 
 import 'package:carcare/AllHomePage/CarBrand.dart';
 import 'package:carcare/AllHomePage/PopularCar.dart';
-
+import 'package:carcare/servive/real%20local%20store.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:provider/provider.dart';
 
 class Homepage extends StatelessWidget {
   final pic1 = "assets/NewPicHomePage/new1.jpg";
@@ -13,6 +15,7 @@ class Homepage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var store1 = Provider.of<StoreLanguage>(context);
     List<String> list = [pic1, pic2, pic3]; // CHG  to list string to print pic
     return Column(
       children: <Widget>[
@@ -57,7 +60,7 @@ class Homepage extends StatelessWidget {
           child: Container(
             alignment: Alignment.topLeft,
             child: Text(
-              'Car Brand',
+              store1.h1.tr(),
               style: TextStyle(
                   fontSize: 25, fontWeight: FontWeight.bold, height: 1),
             ),
@@ -91,7 +94,7 @@ class Homepage extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: SizedBox(
                 child: Text(
-              'Popular Product',
+              store1.h3.tr(),
               style: TextStyle(
                   fontSize: 25, fontWeight: FontWeight.bold, height: 1),
             )),
