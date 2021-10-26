@@ -74,7 +74,10 @@ class Category {
 }
 
 Future<List<Category>> fetchCategories() async {
-  const String apiUrl = "http://192.168.1.4:1880/category";
+  const String apiUrl = "http://172.20.10.10:1880/categories";
+  //192.168.1.4 // zen
+  //172.20.10.2 //Jn iphone
+  //172.20.10.10. //Jn wifi
   var result = await http.get(Uri.parse(apiUrl));
   if (result.statusCode != 200) {
     return [];

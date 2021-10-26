@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'dart:convert';
 import 'package:carcare/servive/real%20local%20store.dart';
 import 'package:carcare/signinGoogle/Authentication.dart';
@@ -18,7 +20,8 @@ import 'package:provider/provider.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  WidgetsFlutterBinding.ensureInitialized();
+  //WidgetsFlutterBinding.ensureInitialized();
+  //await Firebase.initializeApp();
   await EasyLocalization.ensureInitialized();
   runApp(
     EasyLocalization(
@@ -52,25 +55,48 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-          localizationsDelegates: context.localizationDelegates,
-          supportedLocales: context.supportedLocales,
-          locale: context.locale,
-          debugShowCheckedModeBanner: false,
-          title: 'Mr.Car',
-          theme: ThemeData(
-              scaffoldBackgroundColor: Colors.white,
-              appBarTheme: AppBarTheme(
-                  color: Colors.transparent,
-                  elevation: 0,
-                  brightness: Brightness.light),
-              primaryColor: Colors.orange),
-          home: UserTest()),
+        localizationsDelegates: context.localizationDelegates,
+        supportedLocales: context.supportedLocales,
+        locale: context.locale,
+        debugShowCheckedModeBanner: false,
+        //title: 'Mr.Car1',
+        theme: ThemeData(
+            scaffoldBackgroundColor: Colors.white,
+            appBarTheme: AppBarTheme(
+                color: Colors.transparent,
+                elevation: 0,
+                brightness: Brightness.light),
+            primaryColor: Colors.orange),
+        home: UserTest(),
+      ),
+
+//example
+      //         theme: ThemeData(
+      //   colorScheme: ColorScheme.fromSwatch(
+      //     primarySwatch: Colors.blue,
+      //   ).copyWith(
+      //     secondary: Colors.green,
+      //   ),
+      //   textTheme: const TextTheme(bodyText2: TextStyle(color: Colors.purple)),
+      // ),
+      // home: Scaffold(
+      //   appBar: AppBar(
+      //     title: const Text('ThemeData Demo'),
+      //   ),
+      //   floatingActionButton: FloatingActionButton(
+      //     child: const Icon(Icons.add),
+      //     onPressed: () {},
+      //   ),
+      //   body: const Center(
+      //     child: Text('Button pressed 0 times'),
+      //   ),
+      // ),
     );
   }
 }
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  //const LoginPage({Key? key}) : super(key: key);
 
   @override
   _LoginPageState createState() => _LoginPageState();
@@ -127,7 +153,11 @@ class _LoginPageState extends State<LoginPage> {
     String txtpassword = txt2.text;
     //get json text
     // ignore: non_constant_identifier_names
-    String login_url = "http://192.168.1.4.:1880/login";
+    String login_url = "http://172.20.10.10:1880/login";
+    //192.168.1.4 // zen
+    //172.20.10.2 //Jn iphone
+    //192.168.1.2 //Jn wifi
+
     var parameter = {"username": txtusername, "password": txtpassword};
     var jsonText = json.encode(parameter);
     var result = await http.post(Uri.parse(login_url),
@@ -165,7 +195,7 @@ class _LoginPageState extends State<LoginPage> {
                 end: Alignment.bottomCenter,
                 colors: [
                   Color(0xFFBDBDBD),
-                  Color(0xFF607D8b), // ออกมาไม่สวยเฉย
+                  Color(0xFF607D8b), //login color
                   Color(0xFF4555a64),
                   Color(0xFF37474f),
                 ],
@@ -200,7 +230,7 @@ class _LoginPageState extends State<LoginPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        'Email',
+                        'Username or Email',
                         style: kLabelStyle,
                       ),
                       SizedBox(
@@ -212,7 +242,7 @@ class _LoginPageState extends State<LoginPage> {
                         height: 60.0,
                         child: TextField(
                           controller: txt1,
-                          style: TextStyle(color: Colors.white),
+                          style: TextStyle(color: Colors.black),
                           decoration: InputDecoration(
                               border: InputBorder.none,
                               contentPadding: EdgeInsets.only(top: 14.0),
@@ -220,7 +250,7 @@ class _LoginPageState extends State<LoginPage> {
                                 Icons.email,
                                 color: Colors.black,
                               ),
-                              hintText: ' Phone number,Username or Email ',
+                              hintText: ' Username or Email ',
                               hintStyle: kHinTextStyle),
                         ),
                       ),
@@ -244,10 +274,10 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                   SignInButton(
-                    Buttons.GoogleDark,
-                    text: "Sign up with Google",
+                    Buttons.Google,
+                    text: "Sign in with Google",
                     onPressed: signInWithGoogle,
-                  )
+                  ),
                 ],
               ),
             ),

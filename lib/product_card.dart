@@ -1,4 +1,4 @@
-import 'package:carcare/servive/Acessories_class.dart';
+import 'package:carcare/models/Acessories_class.dart';
 import 'package:flutter/material.dart';
 
 class AllProduct extends StatelessWidget {
@@ -25,6 +25,7 @@ class AllProduct extends StatelessWidget {
                 aspectRatio: 1,
                 child: Hero(
                   //ไม่เด้ง
+                  //todo
                   tag: product.id,
                   child: FadeInImage.assetNetwork(
                     placeholder: "assets/tenor.gif",
@@ -40,7 +41,7 @@ class AllProduct extends StatelessWidget {
               SizedBox(
                 height: 5,
               ),
-              Text("${product.price} ฿ "),
+              Text("฿ ${product.price}"),
               Spacer()
             ],
           ),

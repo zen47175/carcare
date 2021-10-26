@@ -1,22 +1,25 @@
 import 'package:carcare/detail/detailBody.dart';
 
 import 'package:carcare/models/Acessories_class.dart';
+import 'package:carcare/models/cars_class.dart';
 import 'package:flutter/material.dart';
 
-class DetailProduct extends StatelessWidget {
-  final Product product;
+import 'carbody.dart';
+
+class DetailCars extends StatelessWidget {
+  final Cars cars;
   final int index;
-  const DetailProduct({Key? key, required this.product,required this.index}) : super(key: key);
+  const DetailCars({Key? key, required this.cars,required this.index}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BodyProduct(
-        product: product,
+      body: BodyCars(
+        cars: cars,
         index: index,
       ),
       appBar: AppBar(
         backgroundColor: Colors.grey[800],
-        title: Text('Product detail'),
+        title: Text('Car detail'),
         actions: <Widget>[
           IconButton(
             onPressed: () {},

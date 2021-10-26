@@ -1,15 +1,13 @@
 import 'dart:async';
 
-import 'package:carcare/servive/Acessories_class.dart';
+import 'package:carcare/models/Acessories_class.dart';
 
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class Searchfilter extends StatefulWidget {
-  const Searchfilter({
-    Key? key,
-  }) : super(key: key);
+ 
 
   @override
   _SearchfilterState createState() => _SearchfilterState();
@@ -40,6 +38,7 @@ class _SearchfilterState extends State<Searchfilter> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
+        backgroundColor: Colors.grey[800],
         title: new Text('Search'),
         elevation: 0.0,
       ),
@@ -116,7 +115,7 @@ class _SearchfilterState extends State<Searchfilter> {
       return;
     }
 
-    // ignore: non_constant_identifier_names
+   
     _product.forEach((Product) {
       if (Product.name.contains(text)) _searchResult.add(Product);
     });

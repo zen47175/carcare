@@ -9,7 +9,7 @@ get kLabelStyle => TextStyle(
       fontWeight: FontWeight.bold,
     );
 get kBoxDecorationStyle => BoxDecoration(
-      color: Colors.deepOrange[100],
+      color: Colors.white,
       border: Border.all(
         color: Colors.black26,
         width: 5,
@@ -17,4 +17,4 @@ get kBoxDecorationStyle => BoxDecoration(
       borderRadius: BorderRadius.circular(20),
     );
 
-get kHinTextStyle => TextStyle(fontSize: 15.0, color: Colors.redAccent);
+get kHinTextStyle => TextStyle(fontSize: 15.0, color: Colors.black);

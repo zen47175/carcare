@@ -1,16 +1,21 @@
 import 'dart:ui';
 
+import 'package:carcare/servive/real%20local%20store.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class Favourite extends StatelessWidget {
   const Favourite({
     Key? key,
   }) : super(key: key);
+  
 
   @override
   Widget build(BuildContext context) {
+    var store1 = Provider.of<StoreLanguage>(context);
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.grey[800],
         title: Text(
           'Favourite',
           style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
@@ -90,8 +95,11 @@ class Favourite extends StatelessWidget {
                             style: ElevatedButton.styleFrom(
                                 primary: Colors.blue,
                                 onPrimary: Colors.white,
-                                shadowColor: Colors.green),
-                            onPressed: () {},
+                                shadowColor: Colors.grey[800]),
+                            onPressed: () {
+                              // store1.addProduct(store1.products[index]);
+                              // Navigator.pop(context);
+                            },
                           ),
                         )
                       ],

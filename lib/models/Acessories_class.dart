@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
+//old
 class Product {
   final int id;
   final String name;
@@ -169,7 +170,10 @@ class Group {
   int get hashCode => groupId.hashCode ^ groupName.hashCode;
 }
 
-const products_url = "http://192.168.1.4:1880/products";
+const products_url = "http://172.20.10.10:1880/products";
+//192.168.1.4 //zen
+//172.20.10.2 //Jn iphone
+//192.168.1.2 //Jn wifi
 
 Future<List<Product>> getAll() async {
   var result = await http.get(Uri.parse(products_url));
@@ -198,6 +202,30 @@ Future<List<Product>> query(int groupId) async {
     return quryList;
   }
 }
+
+Future<List<Product>> getGroup1() async {
+  //get data from datastore
+  var result = await http.get(Uri.parse(products_url));
+  if (result.statusCode != 200) {
+    return [];
+  } else {
+    var map1 = json.decode(result.body) as List;
+    List<Product> list1 = map1.map((x) => Product.fromMap(x)).toList();
+    return list1.where((element) => element.group.groupId == 1).toList();
+  } //e else
+} //ef
+
+Future<List<Product>> getGroup2() async {
+  //get data from datastore
+  var result = await http.get(Uri.parse(products_url));
+  if (result.statusCode != 200) {
+    return [];
+  } else {
+    var map1 = json.decode(result.body) as List;
+    List<Product> list1 = map1.map((x) => Product.fromMap(x)).toList();
+    return list1.where((element) => element.group.groupId == 2).toList();
+  } //e else
+} //ef
 
 // Future<List<Product>> getAll() async {
 //   var result = await http.get(Uri.parse(products_url));

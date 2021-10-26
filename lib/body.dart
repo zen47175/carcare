@@ -4,7 +4,7 @@ import 'package:carcare/categoryType.dart';
 import 'package:carcare/detail/detailproduct.dart';
 import 'package:carcare/models/categories.dart';
 import 'package:carcare/product_card.dart';
-import 'package:carcare/servive/Acessories_class.dart';
+import 'package:carcare/models/Acessories_class.dart';
 import 'package:carcare/servive/real%20local%20store.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -72,8 +72,8 @@ class _TopicState extends State<Topic> {
               groupId == 0
                   ? store1.h7.tr()
                   : groupId == 1
-                      ? store1.h8.tr()
-                      : store1.h9.tr(),
+                      ? store1.h9.tr()
+                      : store1.h10.tr(),
               style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
             ),
           ),
@@ -97,8 +97,12 @@ class _TopicState extends State<Topic> {
                         return AllProduct(
                           product: snapshot.data[index],
                           press: () {
-                            goTo(context,
-                                DetailProduct(product: snapshot.data[index]));
+                            goTo(
+                                context,
+                                DetailProduct(
+                                  product: snapshot.data[index],
+                                  index: index,
+                                ));
                           },
                         );
                       }),

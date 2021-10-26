@@ -1,5 +1,6 @@
 import 'package:carcare/AllMenu/languagePage.dart';
-import 'package:carcare/servive/Acessories_class.dart';
+import 'package:carcare/Favourite%20product/favouritePage.dart';
+import 'package:carcare/models/Acessories_class.dart';
 import 'package:carcare/servive/real%20local%20store.dart';
 import 'package:carcare/signinGoogle/Authentication.dart';
 import 'package:flutter/material.dart';
@@ -21,10 +22,11 @@ class _SettingState extends State<Setting> {
   List<List> _settings = [
     [
       'Change Language',
-      'Turn on/off  language',
+      'Turn on/off language',
       Icons.language_outlined,
       Colors.red[400]
     ],
+    ['Favourite', ' Favourites product', Icons.favorite, Colors.pink],
     ['Dark Theme', ' settings', Icons.dark_mode, Colors.green[400]],
     ['Order', 'Order history', Icons.shopping_bag, Colors.orange[400]],
     ['Help', 'Help and feedback', Icons.help_outline, Colors.blue[400]],
@@ -106,7 +108,7 @@ class _SettingState extends State<Setting> {
                       ),
                       Container(
                           child: Text(
-                        "เหนื่อยจะตายเเล้ว",
+                        "Figthing for IU",
                         style: TextStyle(color: Colors.grey, fontSize: 14),
                       )),
                     ],
@@ -173,6 +175,9 @@ class _SettingState extends State<Setting> {
         }
         if (title == 'Dark Theme') {
           changeDarkTheme();
+        }
+        if (title == 'Favourite') {
+          goTo(context, Favourite());
         }
         if (title == store1.h5.tr()) {
           showLuanguage();

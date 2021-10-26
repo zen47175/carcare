@@ -1,6 +1,6 @@
 import 'package:carcare/menu.dart';
 // ignore: unused_import
-import 'package:carcare/servive/Acessories_class.dart';
+import 'package:carcare/models/Acessories_class.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +35,7 @@ class _AppState extends State<App> {
             ],
             child: MaterialApp(
               debugShowCheckedModeBanner: false,
-              title: 'Mr.Car',
+              //title: 'Mr.Car2',
               theme: ThemeData(
                   scaffoldBackgroundColor: Colors.grey[50],
                   appBarTheme: AppBarTheme(
@@ -112,7 +112,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
           title: "New !!",
           body:
               "Promotion for the customer who buy aceessaries will get \n\n FREE SHIPPING and Discount 100 ฿ ",
-          image: _buildImage('Pidgeons.gif'),
+          image: _buildImage('car.gif'),
           decoration: pageDecoration,
         ),
         PageViewModel(

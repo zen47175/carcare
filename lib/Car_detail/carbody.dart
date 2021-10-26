@@ -2,14 +2,18 @@ import 'package:carcare/detail/product_description.dart';
 import 'package:carcare/detail/product_info.dart';
 
 import 'package:carcare/models/Acessories_class.dart';
+import 'package:carcare/models/cars_class.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-//product
-class BodyProduct extends StatelessWidget {
-  final Product product;
+import 'car_description.dart';
+import 'car_info.dart';
+
+//Car
+class BodyCars extends StatelessWidget {
+  final Cars cars;
   final int index;
-  const BodyProduct({Key? key, required this.product, required this.index}) : super(key: key);
+  const BodyCars({Key? key, required this.cars, required this.index}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     TextStyle lightText =
@@ -20,30 +24,30 @@ class BodyProduct extends StatelessWidget {
         height: 900,
         child: Stack(
           children: <Widget>[
-            ProductInfo(
+            CarsInfo(
               lightText: lightText,
-              product: product,
+              cars: cars,
               index: index,
             ),
             Positioned(
-              top: 375,
+              top: 310,
               left: 0,
               right: 0,
-              child: ProductDescription(
+              child: CarsDescription(
                 press: () {},
-                product: product,
+                cars: cars,
                 index: index,
 
               ),
             ),
             Positioned(
-              top: 95,
-              right: 5,
+              top: 60,
+              right: 14,
               child: Image.network(
-                product.url,
-                fit: BoxFit.cover,
-                height: 220,
-                width: 200,
+                cars.url,
+                fit: BoxFit.contain,
+                height: 420,
+                width: 400,
               ),
             )
           ],

@@ -1,18 +1,19 @@
 import 'package:carcare/models/Acessories_class.dart';
+import 'package:carcare/models/cars_class.dart';
 import 'package:carcare/servive/real%20local%20store.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 //productdesciprion1
-class ProductDescription extends StatelessWidget {
-  const ProductDescription({
+class CarsDescription extends StatelessWidget {
+  const CarsDescription({
     Key? key,
-    required this.product,
+    required this.cars,
     required this.press,
     required this.index,
   }) : super(key: key);
 
-  final Product product;
+  final Cars cars;
   final Function press;
   final int index;
 
@@ -33,18 +34,29 @@ class ProductDescription extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(
-            product.subTitle,
-            style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-          ),
-          SizedBox(
-            height: 30,
+            ("Model: ${cars.model}"),
+            //cars.model,
+            style: TextStyle(
+                  fontSize: 18, fontWeight: FontWeight.bold, height: 1.9),
+            // style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
           ),
           Text(
-            product.info,
+              ("฿ ${cars.price.toString()}"),
+              style: TextStyle(
+                  fontSize: 18, fontWeight: FontWeight.bold, height: 1.9),
+            ),
+          SizedBox(
+            height: 20,
+          ),
+          Text(
+            cars.info,
             style: TextStyle(
               color: Colors.black.withOpacity(0.7),
               height: 1.8,
             ),
+          ),
+          SizedBox(
+            height: 40,
           ),
           SizedBox(
             child: Padding(
@@ -61,16 +73,14 @@ class ProductDescription extends StatelessWidget {
                       primary: Colors.white,
                     ),
                     onPressed: () {
-                      store1.addProduct(product);
-                      print(index);
-                      print(product);
+                      //store1.addProduct(store1.products[index]);
                       //todo
                       Navigator.pop(context);
                     }, // add to cart creat page for cart
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
-                        'Add to Cart',
+                        'Make an appointment',
                         style: TextStyle(
                             fontSize: 20, fontWeight: FontWeight.bold),
                       ),
